@@ -1,2 +1,2 @@
 # pythonutil
-Toolkit for project with a Python binding
+Toolkit for project with a [Python](https://www.python.org/) binding.
