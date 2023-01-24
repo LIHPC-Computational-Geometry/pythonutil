@@ -1,0 +1,19 @@
+include(CMakeFindDependencyMacro)
+find_dependency (TkUtil)
+if (NOT USE_PYTHON_3)
+	find_dependency (Python2 REQUIRED COMPONENTS Development)
+else (NOT USE_PYTHON_3)
+	find_dependency (Python3 REQUIRED COMPONENTS Development)
+endif (NOT USE_PYTHON_3)
+
+@PACKAGE_INIT@
+
+set (PythonUtil_VERSION @PYTHON_UTIL_VERSION@)
+set_and_check (PythonUtil_INCLUDE_DIR   "@PACKAGE_INCLUDE_INSTALL_DIR@")
+#set_and_check (PythonUtil_ARCHIVE_DIR   "@PACKAGE_ARCHIVE_INSTALL_DIR@")
+set_and_check (PythonUtil_LIB_DIR   "@PACKAGE_LIB_INSTALL_DIR@")
+#set_and_check (PythonUtil_RUNTIME_DIR   "@PACKAGE_RUNTIME_INSTALL_DIR@")
+check_required_components (PythonUtil)
+
+# Fournir l'accès aux services des cibles (fichier non inclus automatiquement) :
+include(${CMAKE_CURRENT_LIST_DIR}/PythonUtilTargets.cmake)

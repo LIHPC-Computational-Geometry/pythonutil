@@ -1,0 +1,574 @@
+Version 5.6.6 : 25/11/22
+===============
+
+Un peu de nettoyage (hors sources).
+
+
+Version 5.6.5 : 16/09/22
+===============
+
+workaround.cmake : correctif portage cible RedHat_8__x86_64.
+
+
+Version 5.6.4 : 26/08/22
+===============
+
+workaround.cmake : portage cible RedHat_8__x86_64.
+
+
+Version 5.6.3 : 29/03/22
+===============
+
+Correctif dans PythonLogOutputStream::formatInstruction : traitement séparé de "instance" des cas "long" et "double".
+
+
+Version 5.6.2 : 25/02/22
+===============
+
+Retouches des exemples tests.
+PythonLogOutputStream::closeTryBlock supporte les exception python 3.
+
+
+Version 5.6.1 : 15/02/22
+===============
+
+Retouches cmake dans PythonUtil : find_dependency.
+
+
+Version 5.6.0 : 28/01/22
+===============
+
+Classe PythonLogOutputStream : aptitude à être créée "exécutable" (flag S_IXUSR).
+Correctif bogue dans PythonLogOutputStream::formatInstruction : cas d'une absence de nom de 
+méthode (=> ex : commentaire uniquement), les parenthèses étaient tout de même mises.
+
+
+Version 5.5.9 : 26/01/22
+===============
+
+Correctif bogue dans PythonLogOutputStream::formatInstruction : cas d'un argument de type chaîne de caractère. Une
+exception était levée en cas de chaîne vide.
+
+
+Version 5.5.8 : 04/11/21
+===============
+
+Retouches cmake/python_binding.cmake : support python 2 et 3.
+
+
+Version 5.5.7 : 10/09/21
+===============
+
+Suppression de mini gros-mots et de balises EXPURGE.
+
+
+Version 5.5.6 : 24/08/21
+===============
+
+Suppression des noms de services et laboratoires.
+
+
+Version 5.5.5 : 04/08/21
+===============
+
+PythonUtil/cmake/PythonUtilConfig.cmake.in : find_dependency à Python2 ou Python3 selon le cas.
+
+
+Version 5.5.4 : 22/12/20 Révisions svn 377/378
+===============
+
+Retouche mineure CMakeLists.txt.
+
+
+Version 5.5.3 : 11/12/20 Révisions svn 375/376
+===============
+
+Retouche mineure CMakeLists.txt.
+
+
+Version 5.5.2 : 06/10/20 Révision svn 374
+===============
+
+Retouche mineure pour export.
+
+
+Version 5.5.1 : 17/09/20 Révisions svn 371/372
+===============
+
+Retouches mineures passage ISO 8859 -> UTF8.
+
+
+Version 5.5.0 : 02/09/20 Révisions svn 368/369
+===============
+
+v 0.8.0 de cmake/workarounds.cmake (LC_ALL=C)
+v 0.2.0 de cmake/python_binding.cmake (support Python 2/Python 3)
+Requiert TkUtil 5.6.0 ou ultérieur.
+
+
+Version 5.4.3 : Révisions svn 365/366
+===============
+
+- Ajout -DNDEBUG à la compilation en mode non debug.
+- Actualisation des fichiers d'installation par scripting (build.sh, configurations/*).
+
+
+Version 5.4.2 : 25/06/20 Révisions svn 362/363
+===============
+
+Petits correctifs pour import/export.
+
+
+Version 5.4.1 : 08/06/20 Révisions svn 358/359
+===============
+
+Petits correctifs pour import/export.
+cmake/common.cmake : ajout à CMAKE_CXX_FLAGS de la variable EXTRA_CXX_FLAGS éventuellement transmise en argument
+de cmake.
+
+
+Version 5.4.0 : 04/06/20 Révisions svn 355/357
+===============
+
+Fin réintégration en environnement CEA suite confinement covid-19.
+Procédure d'exportation ouverte des sources : cible export avec script export.sh (réalisation d'un tarball filtré,
+sans gros mots, reposant sur la commande expurge réalisée à cet effet et sur la commande tar).
+cmake/workaround.cmake utilise maintenant la commande lsb_release -d à la place du tandem uname/commande locale. A
+finaliser sur calculateur.
+
+
+Version 5.3.0 : 04/04/20
+===============
+
+Déplacement des en-têtes dans le répertoire PythonUtil
+TkUtil v 5.4.0
+
+
+Version 5.2.0 : 18/03/20
+===============
+
+Passage du projet en UTF-8
+Portage g++ v 7.5.0
+auto_ptr -> unique_ptr
+Mise en fonctionnement du test de scripting.
+
+
+Version 5.1.0 : 17/02/20. Révisions svn 345
+===============
+
+- Retouches compatibilité (SameMinorVersion -> SameMajorVersion)
+
+
+Version 5.0.3 : 21/01/20. Révisions svn 343
+===============
+
+Script de génération de l'archive des sources, script create_tarball.sh.
+Fichier LISEZMOI.txt
+
+
+Version 5.0.2 : 13/01/20. Révisions svn 342
+===============
+
+Portage CMake/Spack. Retouche python_binding.cmake + dépendance à Python.
+
+
+Version 5.0.1 : 06/01/20 révision svn 340
+===============
+
+Version 5.0.1. Portage (Atos_7__x86_64). Retouche workarounds.cmake pour lib stdc++ GNU.
+
+
+Version 5.0.0 : 06/09/19 C. Pignerol Révisions svn r337/r338
+===============
+
+Passage en environnement CMake/Spack (arrêt GSCC).
+
+PythonLogOutputStream::formatInstruction : les booléens sont écrits t.q. (True/False)
+à la place de 1/0.
+
+
+Version 4.6.0 : 05/09/19 C. Pignerol Révisions svn r334/r336
+===============
+
+TkUtil v 4.6.0
+
+
+Version 4.5.1 : 29/01/19 C. Pignerol Révisions svn r331/r333
+===============
+
+Correctif PythonLogOutputStream::toComment : cas d'un commentaire
+finissant par un saut de ligne (levait une exception).
+
+
+Version 4.5.0 : 28/11/18 C. Pignerol Révisions svn r328/r330
+===============
+
+TkUtil v 4.5.0
+
+
+Version 4.4.0 : 16/11/18 C. Pignerol Révisions svn r325/r328
+===============
+
+TkUtil v 4.4.0
+
+Correctif dans PythonLogOutputStream::toComment :
+\n en trop à chaque saut de ligne.
+
+
+Version 4.3.0 : 14/09/18 C. Pignerol Révisions svn r321/r323
+===============
+
+TK_Variants v 4.4.0 (TkUtil 4.3.0).
+
+
+Version 4.2.0 : 04/09/18 C. Pignerol Révisions svn r318/r320
+===============
+
+TK_Variants v 4.3.0 (TkUtil 4.2.0).
+
+
+Version 4.1.0 : 22/06/18 C. Pignerol Révisions svn r315/r317
+===============
+
+TK_Variants v 4.2.0 (TkUtil 4.1.0).
+
+
+Version 4.0.0 : 12/04/18 C. Pignerol 
+===============
+
+TK_Variants v 4.0.0
+
+TkUtil v 4.0.0 : classe UTF8String.
+
+Utilisation des chaînes de caractères UTF8String dans l'API proposée.
+
+Encodage des scripts python avec jeu de caractères demandé (ISO-8859/UTF-8).
+
+
+Version 3.8.0 : 15/02/18 C. Pignerol 
+===============
+
+TK_Variants v 3.2.0
+
+TkUtil v 3.4.0
+
+
+Version 3.7.0 : 09/11/17 C. Pignerol 
+===============
+
+TK_Variants v 3.0.0 (ECM_Variants v 1.21.0 : portage RH 7, compilateurs gcc 6.2.0, icpc 17.0.4).
+
+TkUtil v 3.3.0 (correctif RemoteProcess::kill).
+
+
+Version 3.6.0 : 16/10/17 C. Pignerol 
+===============
+
+- PythonLogOutputStream::write (string) supporte les instructions multilignes.
+- PythonLogOutputStream::toComment (string) supporte (mieux) les commentaires
+multilignes.
+
+
+Version 3.5.0 : 05/09/17 C. Pignerol 
+===============
+
+- TK_variants v 2.16.0
+
+- Méthode PythonLogOutputStream::toComment (string)
+
+
+Version 3.4.0 : 21/07/17 C. Pignerol 
+===============
+
+- TK_variants v 2.15.0 (TkUtil v 3.2.0)
+
+
+Version 3.3.0 : 22/06/17 C. Pignerol 
+===============
+
+- TK_variants v 2.14.0
+
+Pré-portage Qt 5.8
+
+
+Version 3.0.0 : 09/12/16 C. Pignerol 
+===============
+
+- TK_variants v 2.0.0
+
+Arrêt variant MT, TkUtil v 3.0.0
+
+
+Version 2.43.0 : 29/08/16 C. Pignerol
+================
+
+- TK_variants v 1.73.0
+
+
+Version 2.42.1 : 17/05/16 C. Pignerol
+================
+
+- TK_variants v 1.69.0
+
+Correctif PythonSession : suppression utilisation
+flags.cf_flags = CO_FUTURE_DIVISION car python ne substitue pas l'opérateur /
+par div dans les scripts => mauvais mapping avec swig 1.3.
+
+
+Version 2.42.0 : 15/03/16 C. Pignerol
+================
+
+- TK_variants v 1.66.0
+
+
+Version 2.41.0 : 04/01/16 C. Pignerol
+================
+
+- TK_variants v 1.57.0
+
+
+Version 2.40.0 : 03/11/15 C. Pignerol
+================
+
+- TK_variants v 1.55.0
+
+
+Version 2.39.0 : 12/10/15
+================
+
+- TK_Variants v 1.53.0
+
+- TkUtil v 2.38.0
+
+
+Version 2.38.0 : 06/07/15
+================
+
+- TK_Variants v 1.52.0 (Atos_7__x86_64 ... Python 2.7). 
+
+
+Version 2.37.0 : 06/03/15
+================
+
+- TK_Variants v 1.48.0 (TkUtil v 2.36.0).
+
+
+Version 2.36.0 : 28/11/14
+================
+
+- TK_Variants v 1.43.0 (TkUtil v 2.35.0).
+
+
+Version 2.35.0 : 17/12/13
+================
+
+- TK_Variants v 1.33.0 (TkUtil v 2.34.0).
+- Portage clang.
+
+
+Version 2.34.0 : 15/10/13
+================
+
+- TK_Variants v 1.31.0 (TkUtil v 2.33.0).
+
+
+Version 2.33.0 : 30/05/13
+================
+
+- TK_Variants v 1.27.0 (TkUtil v 2.32.0).
+
+
+Version 2.32.0 : 13/05/13
+================
+
+- TK_Variants v 1.26.0 (TkUtil v 2.31.0).
+- Variant Python_System à la place de Python_2.6.
+
+
+Version 2.31.0 : 18/01/13
+================
+
+- TK_Variants v 1.24.0 (TkUtil v 2.30.0).
+- Utilisation des variants PYTHON_LIB_VERSION et SWIG_COMPILER_VERSION.
+- Actualisation des tests (fonctionnent en Python 2.4/2.6, Swig 1.3/2.0).
+
+
+Version 2.30.0 : 20/12/12
+================
+
+- TK_Variants v 1.23.0 (TkUtil v 2.29.0).
+- Cible RedHat_6_x86_64.
+
+
+Version 2.29.0 : 12/10/12
+================
+
+- PythonSession : Les fonctions execCommand et execFile prennent en argument le
+bouléen catchOutputs.
+- Les flux stdout et stderr de l'interpréteur Python sont récupérés et :
+	- Redirigés dans le terminal d'origine, (ne fonctionne pas à 100/100)
+	- Sauvegardés dans un fichier, et récupérables via getOutText et
+	getErrorText.
+Motivation : lorsque la commande plante on souhaite avoir sur les sorties
+standards (stdout/stderr) les messages relatifs à l'exécution de la commande.
+
+
+Version 2.28.0 : 17/01/12
+================
+
+- TkUtil v 2.28.0.
+
+ATTENTION : déploiement effectué hors TK_Variants
+
+
+Version 2.27.0 : 04/01/12
+================
+
+- TkUtil v 2.27.0.
+
+ATTENTION : déploiement effectué hors TK_Variants
+=> un force_variant version 2.27.0 de TkUtil est dans
+src/PythonUtil/cmpnt.xml.
+
+
+Version 2.26.0 : 24/11/11
+================
+
+- TK_Variants v 1.20.0 (TkUtil v 2.26.0).
+
+
+Version 2.25.0 : 08/09/11
+================
+
+- TK_Variants v 1.19.0 (TkUtil v 2.25.0).
+- ECM_Variants v 1.8.0.
+
+
+Version 2.24.0 : 14/03/11
+================
+
+- TK_Variants v 1.17.0 (TkUtil v 2.23.0).
+
+
+Version 2.23.0 : 25/01/11
+================
+
+- TK_Variants v 1.16.0 (TkUtil v 2.22.0).
+
+
+Version 2.22.1 : 05/01/11
+================
+
+- PyRun_Simple* remplacé par PyRun_Simple*Flags avec usage de
+CO_FUTURE_DIVISION : les divisions ne sont plus entières par défaut
+=> 1 / 4 = 0.25, et non 0 comme auparavant.
+- TK_Variants v 1.13.0
+- Actualisation des tests.
+
+
+Version 2.22.0 : 15/11/10
+================
+
+- En-têtes : #include "*.h" -> #include <*.h>
+- TkUtil v 2.21.0
+- TK_Variants v 1.11.0
+
+
+Version 2.21.0 : 31/08/10
+================
+
+TK_Variants v 1.9.0
+TkUtil v 2.20.0
+
+
+Version 2.20.1 : 04/06/10
+================
+
+TK_Variants v 1.7.1
+TkUtil v 2.19.1
+
+
+Version 2.20.0 : 25/05/10
+================
+
+- TK_Variants 1.7.0 et donc TkUtil 2.19.0
+
+
+Version 2.19.0 : 06/01/10
+================
+
+- TK_Variants 1.2.0
+- Ajout variant MT (multithread). L'usage de ce variant est inutile mais GSCC,
+dans sa version courante (0.13.1), n'est pas en mesure de faire des arbitrages
+lors qu'une bibliotheque est demandee avec une combinaison de variants donnee
+d'une part et avec des valeurs par defaut d'autre part.
+- Actualisation de la documentation.
+
+
+Version 2.18.0 : 29/10/09
+================
+
+- Portage Fedora_11__x86_64, arret RH 5 32 bits et +-Nehalem.
+- Portage gcc 4.4.0/icpc 11.1.056.
+- Utilisation de ECM_variants.xml/TK_Variants.xml (variants systeme
+d'exploitation/compilateurs utilises).
+
+
+Version 2.17.0 : 12/10/09
+================
+
+Portage sous GSCC.
+
+
+Version 2.16.0 : 06/08/09
+================
+
+Suit TkUtil v 2.15.0 (pour les liens glissants/-rpath des .so).
+
+
+Version 2.14.0 : 23/03/09
+================
+
+Suit TkUtil v 2.13.0.
+
+- PythonLogOutputStream : methodes isCommentLine et getCommentDeclaration.
+
+
+Version 2.13.0 : 16/01/09
+================
+
+Suit TkUtil v 2.12.0.
+
+
+Version 2.12.0 : 03/10/08
+================
+
+PythonLogOutputStream : support de l'encodage des scripts.
+
+
+Version 2.10.0 : 22/07/08
+================
+
+- PythonSession::execFile avec des arguments de ligne de commande.
+
+
+Version 2.9.0 : 27/06/08
+===============
+
+- Compilation avec -DSWIG_FORBIDS_FINALIZATION
+- Classe PythonLogOutputStream
+
+
+Version 2.8.1 : 07/04/08
+===============
+
+RAS
+
+Republiee le 27/06/08 avec pour option de compilation
+-DSWIG_FORBIDS_FINALIZATION.
+
+
+Versions antérieures :
+======================
+
+Voir fichier versions.old.
