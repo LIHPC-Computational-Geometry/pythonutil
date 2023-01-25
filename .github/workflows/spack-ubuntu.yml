@@ -47,7 +47,7 @@ jobs:
           # now we build using cmake with spack provided build variables
           spack load --only dependencies --sh pythonutil > spack_env_file.sh
           source spack_env_file.sh
-          cmake -DCMAKE_INSTALL_PREFIX=${{env.INSTALL_DIR}} -S . -B build
+          cmake -DUSE_PYTHON_3:BOOL=ON -DCMAKE_INSTALL_PREFIX=${{env.INSTALL_DIR}} -S . -B build
           cmake --build build
           #make test
 
