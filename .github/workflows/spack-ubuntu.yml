@@ -29,17 +29,14 @@ jobs:
       - name: Initialize the dev environment
         shell: bash
         run : |
-          echo "docker_tag=$(echo ${GITHUB_REF} | cut -d'/' -f3)-${GITHUB_SHA}" >> $GITHUB_ENV
-          echo docker_tag= ${{ env.docker_tag }}
           source /spack/share/spack/setup-env.sh
           git clone --depth=1 https://github.com/LIHPC-Computational-Geometry/spack_recipes_meshing.git
           spack repo add ./spack_recipes_meshing/meshing_repo
           spack repo add ./spack_recipes_meshing/supersede_repo
 
-      - name: Build and install
+      - name: Build and install with spack
         shell: bash
         run: |
-          echo docker_tag= ${{ env.docker_tag }}
           source /spack/share/spack/setup-env.sh 
           spack env activate meshing-env
           spack add pythonutil
@@ -47,20 +44,24 @@ jobs:
           # seems to be incorrect (see https://github.com/actions/runner/issues/2058)
           spack develop -p $GITHUB_WORKSPACE --no-clone pythonutil@5.6.6
           spack install --no-checksum
+          echo REPO = $GITHUB_REPOSITORY
+          echo "SPACK_MODULE_DIR=$(spack location --module-dir pythonutil)" >> $GITHUB_ENV
+
+      - name: Build with cmake
+        shell: bash
+        run: |
+          source /spack/share/spack/setup-env.sh 
           # now we build using cmake with spack provided build variables
           # 26/01/2023 - spack load does not set cmake variables coming from spack recipe.
           # Instead the spack-build-env.txt file is used
           #   spack load --only dependencies --sh pythonutil > spack_env_file.sh
           #   source spack_env_file.sh
-          echo AAAAAAAAAAAAAAAA
-          echo "SPACK_MODULE_DIR=$(spack location --module-dir pythonutil)" >> $GITHUB_ENV
-          echo SPACK_MODULE_DIR = ${{ env.SPACK_MODULE_DIR }}
           source ${{ env.SPACK_MODULE_DIR }}/.spack/spack-build-env.txt
           cmake -DCMAKE_INSTALL_PREFIX=${{ env.INSTALL_DIR }} -S . -B build
           cmake --build build
           #make test
 
-      - name: Test c++ lib install
+      - name: Test C++ lib install
         shell: bash
         run: |
           source /spack/share/spack/setup-env.sh
