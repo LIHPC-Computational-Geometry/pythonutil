@@ -39,6 +39,7 @@ jobs:
       - name: Build and install
         shell: bash
         run: |
+          echo docker_tag= ${{ env.docker_tag }}
           source /spack/share/spack/setup-env.sh 
           spack env activate meshing-env
           spack add pythonutil
