@@ -51,10 +51,10 @@ jobs:
           #   source spack_env_file.sh
           echo AAAAAAAAAAAAAAAA
           echo "SPACK_MODULE_DIR=$(spack location --module-dir pythonutil)" >> $GITHUB_ENV
-          echo ${{env.SPACK_MODULE_DIR}}
-          echo $CI_PROJECT_NAME
-          source ${{env.SPACK_MODULE_DIR}}/.spack/spack-build-env.txt
-          cmake -DCMAKE_INSTALL_PREFIX=${{env.INSTALL_DIR}} -S . -B build
+          echo SPACK_MODULE_DIR = ${{ env.SPACK_MODULE_DIR }}
+          echo CI_PROJECT_NAME = $CI_PROJECT_NAME
+          source ${{ env.SPACK_MODULE_DIR }}/.spack/spack-build-env.txt
+          cmake -DCMAKE_INSTALL_PREFIX=${{ env.INSTALL_DIR }} -S . -B build
           cmake --build build
           #make test
 
