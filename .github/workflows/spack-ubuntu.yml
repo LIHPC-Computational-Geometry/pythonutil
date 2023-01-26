@@ -39,6 +39,7 @@ jobs:
         run: |
           source /spack/share/spack/setup-env.sh 
           spack env activate meshing-env
+          # ${{ github.event.repository.name }} represents the name of the project
           spack add ${{ github.event.repository.name }}
           # we use GITHUB_WORKSPACE instead of github.Workspace because in containers it
           # seems to be incorrect (see https://github.com/actions/runner/issues/2058)
