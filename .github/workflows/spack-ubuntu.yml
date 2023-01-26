@@ -29,6 +29,8 @@ jobs:
       - name: Initialize the dev environment
         shell: bash
         run : |
+          echo "docker_tag=$(echo ${GITHUB_REF} | cut -d'/' -f3)-${GITHUB_SHA}" >> $GITHUB_OUTPUT
+          echo docker_tag= ${{ env.docker_tag }}
           source /spack/share/spack/setup-env.sh
           git clone --depth=1 https://github.com/LIHPC-Computational-Geometry/spack_recipes_meshing.git
           spack repo add ./spack_recipes_meshing/meshing_repo
@@ -52,7 +54,6 @@ jobs:
           echo AAAAAAAAAAAAAAAA
           echo "SPACK_MODULE_DIR=$(spack location --module-dir pythonutil)" >> $GITHUB_ENV
           echo SPACK_MODULE_DIR = ${{ env.SPACK_MODULE_DIR }}
-          echo CI_PROJECT_NAME = $CI_PROJECT_NAME
           source ${{ env.SPACK_MODULE_DIR }}/.spack/spack-build-env.txt
           cmake -DCMAKE_INSTALL_PREFIX=${{ env.INSTALL_DIR }} -S . -B build
           cmake --build build
