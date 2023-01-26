@@ -48,7 +48,7 @@ jobs:
           spack develop -p $GITHUB_WORKSPACE --no-clone pythonutil@5.6.6
           spack install --no-checksum
           echo REPO = $PROJECT_NAME
-          echo "SPACK_MODULE_DIR=$(spack location --module-dir pythonutil)" >> $GITHUB_ENV
+          echo "SPACK_MODULE_DIR=$(spack location --install-dir pythonutil)" >> $GITHUB_ENV
 
       - name: Build with cmake
         shell: bash
