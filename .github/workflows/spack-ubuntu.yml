@@ -8,7 +8,8 @@ on:
     branches: [ main ]
 
 env:
-  PROJECT_NAME: $(echo ${GITHUB_REPOSITORY/"LIHPC-Computational-Geometry/"/})
+  # "LIHPC-Computational-Geometry/" removed from name (=> 29 chars)
+  PROJECT_NAME: ${{ $(echo $GITHUB_REPOSITORY | cut -c 29-) }}
 
 jobs:
   init:
