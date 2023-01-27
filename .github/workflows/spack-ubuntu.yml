@@ -9,7 +9,7 @@ on:
 
 jobs:
   main:
-    uses: LIHPC-Computational-Geometry/lihpccg-ci/spack-ubuntu.yml@main
+    uses: LIHPC-Computational-Geometry/lihpccg-ci/.github/workflows/spack-ubuntu.yml@main
     with:
       run-tests: false
       cmake-options: "-DUSE_PYTHON_3:BOOL=ON"
