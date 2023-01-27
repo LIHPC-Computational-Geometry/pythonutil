@@ -3,11 +3,11 @@ project(test_link)
 
 set(CMAKE_CXX_STANDARD 14)
 
-find_package (pythonutil REQUIRED)
+find_package (PythonUtil REQUIRED)
 
 add_executable(test_link main.cpp)
 
-target_link_libraries(${PROJECT_NAME} PRIVATE pythonutil::pythonutil)
+target_link_libraries(${PROJECT_NAME} PRIVATE PythonUtil::PythonUtil)
 
 enable_testing()
 add_test(
