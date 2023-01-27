@@ -13,17 +13,11 @@ USING_STD
 
 int main (int argc, char* argv[], char* envp [])
 {
-	if (2 != argc)
-	{
-		cout << "Syntaxe : " << argv [0] << " filename.py" << endl;
-		return -1;
-	}	// if (2 != argc)
-
 	try
 	{
 		Process::initialize (argc, argv, envp);
 		Process::setCurrentSoftware ("Hello", Version ("1.0.0"));
-		PythonLogOutputStream	script (argv [1], Charset (Charset::UTF_8));
+		PythonLogOutputStream	script ("output.txt", Charset (Charset::UTF_8));
 		script.writeHeader ( );
 		ScriptingLog	i1 ("", "print", "", UTF8String ("Un petit bonjour", Charset (Charset::UTF_8)));
 		i1 << "hello" << UserData ( ).getName ( );

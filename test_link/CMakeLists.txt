@@ -3,7 +3,7 @@ project(test_link)
 
 set(CMAKE_CXX_STANDARD 14)
 
-find_package (PythonUtil REQUIRED)
+find_package(PythonUtil REQUIRED)
 
 add_executable(test_link main.cpp)
 
