@@ -8,7 +8,8 @@ on:
     branches: [ main ]
 
 jobs:
-  call-lihpccg-spackubuntu:
+  call:
+    name: Call lihpccg Spack/Ubuntu
     uses: LIHPC-Computational-Geometry/lihpccg-ci/.github/workflows/spack-ubuntu.yml@main
     with:
       run-tests: false
