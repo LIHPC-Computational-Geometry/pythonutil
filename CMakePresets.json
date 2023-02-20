@@ -5,6 +5,7 @@
         "name": "ci",
         "cacheVariables": {
           "TkUtil_ROOT": "$env{INSTALL_DIR}/tkutil",
+          "TkUtilScripting_ROOT": "$env{INSTALL_DIR}/tkutil",
           "USE_PYTHON_3": "ON"
         }
       }
