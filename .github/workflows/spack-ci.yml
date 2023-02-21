@@ -11,3 +11,5 @@ jobs:
   call:
     name: Call Spack reusable workflow
     uses: LIHPC-Computational-Geometry/lihpccg-ci/.github/workflows/spack-reusable.yml@main
+    with:
+      test-link-options: "-DUSE_PYTHON_3:BOOL=ON"
