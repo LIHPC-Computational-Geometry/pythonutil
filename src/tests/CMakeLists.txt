@@ -4,6 +4,8 @@ include (${CMAKE_SOURCE_DIR}/cmake/workarounds.cmake)
 
 set (ALL_EXECUTABLES hello script_gen python_runner)
 
+enable_testing()
+
 find_package (TkUtilScripting)
 foreach (exe ${ALL_EXECUTABLES})
    add_executable (${exe} ${exe}.cpp)
@@ -17,4 +19,7 @@ foreach (exe ${ALL_EXECUTABLES})
 		INSTALL_RPATH ${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_LIBDIR})
 endforeach (exe)
 
+add_test(NAME hello COMMAND $<TARGET_FILE:hello> test.py) # will create a python file 
+add_test(NAME python_runner COMMAND $<TARGET_FILE:python_runner> test.py) # execute the file previously created
+add_test(NAME script_gen COMMAND $<TARGET_FILE:script_gen> sgtest.py)
 

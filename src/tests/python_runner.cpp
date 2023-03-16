@@ -33,18 +33,20 @@ int main (int argc, char* argv[], char* envp [])
 		pySession.execFile (argv [1]);
 
 		cout << "Sorties du script " << argv [1] << " :" << endl << endl;
-		UTF8String	outputs (pySession.getOutputs ( ));
-		const string	str	= outputs.trim ( ).iso ( );
+		UTF8String outputs (pySession.getOutputs ( ));
+		const string str	= outputs.trim ( ).iso ( );
 		cout << str << endl;
 		cout << endl << "Fin des sorties du script " << argv [1] << "." << endl;
 	}
 	catch (const Exception& exc)
 	{
 		cout << "Exception : " << exc.getFullMessage ( ) << endl;
+		return -1;
 	}
 	catch (...)
 	{
 		cout << "Exception non documentée." << endl;
+		return -1;
 	}
 
 	return 0;
