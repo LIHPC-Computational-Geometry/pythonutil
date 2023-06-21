@@ -1,9 +1,11 @@
-include (${CMAKE_SOURCE_DIR}/cmake/version.cmake)
-include (${CMAKE_SOURCE_DIR}/cmake/common.cmake)
-include (${CMAKE_SOURCE_DIR}/cmake/python_binding.cmake)
-include (${CMAKE_SOURCE_DIR}/cmake/workarounds.cmake)
+find_package (GUIToolkitsVariables)
 
-find_package (TkUtilScripting 5 REQUIRED)
+include (${CMAKE_SOURCE_DIR}/cmake/version.cmake)
+include (${GUIToolkitsVariables_CMAKE_DIR}/common.cmake)
+include (${GUIToolkitsVariables_CMAKE_DIR}/python_binding.cmake)
+include (${GUIToolkitsVariables_CMAKE_DIR}/workarounds.cmake)
+
+find_package (TkUtilScripting 6 REQUIRED)
 
 file (GLOB CPP_SOURCES *.i *.cpp)
 
@@ -24,11 +26,7 @@ set_source_files_properties (PythonScriptingTest.i PROPERTIES SWIG_MODULE_NAME P
 set (MT_SWIG_COMPILE_OPTIONS "-c++;-module;PythonScriptingTest;-globals;PythonScriptingTest;-shadow;-DIN_STD=\"std::\";-DSWIG_FORBIDS_FINALIZATION;-DIN_UTIL=\"TkUtil::\";-DIN_STD=\"std::\"")
 set_source_files_properties (PythonScriptingTest.i PROPERTIES SWIG_MODULE_NAME PythonScriptingTest)
 foreach (lib ${ALL_TARGETS})
-if (USE_PYTHON_3)
-	target_include_directories (${lib} PRIVATE ${Python3_INCLUDE_DIRS})
-else (USE_PYTHON_3)
-	target_include_directories (${lib} PRIVATE ${Python2_INCLUDE_DIRS})
-endif (USE_PYTHON_3)
+   target_include_directories (${lib} PRIVATE ${Python_INCLUDE_DIRS})
    target_compile_options (${lib} PUBLIC ${MANDATORY_CXX_OPTIONS})
    set_property (TARGET ${lib} PROPERTY VERSION ${PYTHON_UTIL_VERSION})
    set_property (TARGET ${lib} PROPERTY SOVERSION ${PYTHON_UTIL_MAJOR_VERSION})

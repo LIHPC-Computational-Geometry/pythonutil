@@ -1,7 +1,37 @@
+Version 6.2.0 : 21/06/23
+===============
+
+Sortie du projet GUIToolkits.
+
+
+Version 6.1.1 : 25/04/23
+===============
+
+Correctifs cmake quant à la version de python utilisée.
+
+
+Version 6.1.0 : 31/03/23
+===============
+
+Portage GitHub environnement podman/spack/tests CI.
+
+
+Version 6.0.1 : 03/02/23
+===============
+
+Retouches cmake : blindage pour cas non gérés (versions Python).
+
+
+Version 6.0.0 : 10/01/23
+===============
+
+Intégration au projet GUIToolkits.
+
+
 Version 5.6.6 : 25/11/22
 ===============
 
-Un peu de nettoyage (hors sources).
+Suppression répertoire module.
 
 
 Version 5.6.5 : 16/09/22
@@ -59,7 +89,7 @@ Retouches cmake/python_binding.cmake : support python 2 et 3.
 Version 5.5.7 : 10/09/21
 ===============
 
-Suppression de mini gros-mots et de balises EXPURGE.
+Divers nettoyage.
 
 
 Version 5.5.6 : 24/08/21
@@ -131,8 +161,7 @@ Version 5.4.0 : 04/06/20 Révisions svn 355/357
 ===============
 
 Fin réintégration en environnement CEA suite confinement covid-19.
-Procédure d'exportation ouverte des sources : cible export avec script export.sh (réalisation d'un tarball filtré,
-sans gros mots, reposant sur la commande expurge réalisée à cet effet et sur la commande tar).
+Procédure d'exportation ouverte des sources : cible export avec script export.sh.
 cmake/workaround.cmake utilise maintenant la commande lsb_release -d à la place du tandem uname/commande locale. A
 finaliser sur calculateur.
 
