@@ -68,6 +68,13 @@ export (EXPORT ${CMAKE_PACKAGE_TARGETS_NAME} FILE ${CMAKE_PACKAGE_TARGETS_FILE} 
 set (INCLUDE_INSTALL_DIR include/)		# PythonUtil_INCLUDE_DIR avec PythonUtilConfig.cmake.in
 set (LIB_INSTALL_DIR ${CMAKE_INSTALL_LIBDIR})	# PythonUtil_LIB_DIR avec PythonUtilConfig.cmake.in
 #set (RUNTIME_INSTALL_DIR bin/)			# PythonUtil_RUNTIME_DIR avec PythonUtilConfig.cmake.in
+
+if (NOT USE_PYTHON_3)
+	set (REQUIRED_PYTHON Python2)
+else (NOT USE_PYTHON_3)
+	set (REQUIRED_PYTHON Python3)
+endif (NOT USE_PYTHON_3)
+
 # Création du fichier PythonUtilConfig.cmake qui définira PythonUtil_INCLUDE_DIR, PythonUtil_LIB_DIR et PythonUtil_BIN_DIR :
 configure_package_config_file (cmake/${CMAKE_PACKAGE_CONFIG_NAME}.cmake.in ${CMAKE_PACKAGE_CONFIG_FILE}
 	INSTALL_DESTINATION ${CMAKE_CMAKE_DIR}
