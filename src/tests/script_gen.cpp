@@ -187,12 +187,10 @@ int main (int argc, char* argv[], char* envp [])
 	catch (const Exception& exc)
 	{
 		cout << "Exception : " << exc.getFullMessage ( ) << endl;
-		return -1;
 	}
 	catch (...)
 	{
 		cout << "Exception non documentée." << endl;
-		return -1;
 	}
 
 	return 0;

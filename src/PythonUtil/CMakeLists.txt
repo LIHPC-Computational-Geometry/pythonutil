@@ -1,12 +1,14 @@
 set (CURRENT_PACKAGE_NAME "PythonUtil")
 set (CURRENT_PACKAGE_MACRO_NAME "PYTHON_UTIL")
 
-include (${CMAKE_SOURCE_DIR}/cmake/version.cmake)
-include (${CMAKE_SOURCE_DIR}/cmake/common.cmake)
-include (${CMAKE_SOURCE_DIR}/cmake/python_binding.cmake)
-include (${CMAKE_SOURCE_DIR}/cmake/workarounds.cmake)
+find_package (GUIToolkitsVariables)
 
-find_package (TkUtil 5 REQUIRED)
+include (${CMAKE_SOURCE_DIR}/cmake/version.cmake)
+include (${GUIToolkitsVariables_CMAKE_DIR}/common.cmake)
+include (${GUIToolkitsVariables_CMAKE_DIR}/python_binding.cmake)
+include (${GUIToolkitsVariables_CMAKE_DIR}/workarounds.cmake)
+
+find_package (TkUtil 6 REQUIRED)
 
 file (GLOB HEADERS public/${CURRENT_PACKAGE_NAME}/*.h)
 file (GLOB CPP_SOURCES *.cpp)
@@ -14,11 +16,7 @@ file (GLOB CPP_SOURCES *.cpp)
 # On ajoute les en-têtes aux sources. C'est utile pour cmake dans certains cas,
 # par exemple lorsqu'ils doivent être pré-processés (moc, ...).
 set (ALL_TARGETS PythonUtil)
-if (USE_PYTHON_3)
-	set (PYTHON_CXX_OPTIONS -DPYTHON_VERSION="${Python3_VERSION}")
-else (USE_PYTHON_3)
-	set (PYTHON_CXX_OPTIONS -DPYTHON_VERSION="${Python2_VERSION}")
-endif (USE_PYTHON_3)
+set (PYTHON_CXX_OPTIONS -DPYTHON_VERSION="${Python_VERSION}")
 set (SWIG_CXX_OPTIONS -DSWIG_FORBIDS_FINALIZATION -DSWIG_VERSION="${SWIG_VERSION}")
 set (PYTHON_UTIL_CXX_OPTIONS -DTK_PYTHON_UTIL_VERSION="${PYTHON_UTIL_VERSION}")
 
@@ -34,13 +32,8 @@ foreach (lib ${ALL_TARGETS})
 # Vieux compilos/architectures (RH6, Bull, gcc 4.*)
    target_compile_definitions (${lib} PRIVATE WITHOUT_THREAD_LOCALE)
 endforeach (lib)
-if (USE_PYTHON_3)
-	target_include_directories (PythonUtil PRIVATE ${Python3_INCLUDE_DIRS})
-	target_link_libraries (PythonUtil PUBLIC TkUtil::TkUtil ${Python3_LIBRARIES})
-else (USE_PYTHON_3)
-	target_include_directories (PythonUtil PRIVATE ${Python2_INCLUDE_DIRS})
-	target_link_libraries (PythonUtil PUBLIC TkUtil::TkUtil ${Python2_LIBRARIES})
-endif (USE_PYTHON_3)
+target_include_directories (PythonUtil PRIVATE ${Python_INCLUDE_DIRS})
+target_link_libraries (PythonUtil PUBLIC TkUtil::TkUtil ${Python_LIBRARIES})
 target_include_directories (PythonUtil PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/public>$<INSTALL_INTERFACE:${CMAKE_INSTALL_PREFIX}/include>)
 
 # INSTALLATION :
@@ -75,6 +68,13 @@ export (EXPORT ${CMAKE_PACKAGE_TARGETS_NAME} FILE ${CMAKE_PACKAGE_TARGETS_FILE} 
 set (INCLUDE_INSTALL_DIR include/)		# PythonUtil_INCLUDE_DIR avec PythonUtilConfig.cmake.in
 set (LIB_INSTALL_DIR ${CMAKE_INSTALL_LIBDIR})	# PythonUtil_LIB_DIR avec PythonUtilConfig.cmake.in
 #set (RUNTIME_INSTALL_DIR bin/)			# PythonUtil_RUNTIME_DIR avec PythonUtilConfig.cmake.in
+
+if (NOT USE_PYTHON_3)
+	set (REQUIRED_PYTHON Python2)
+else (NOT USE_PYTHON_3)
+	set (REQUIRED_PYTHON Python3)
+endif (NOT USE_PYTHON_3)
+
 # Création du fichier PythonUtilConfig.cmake qui définira PythonUtil_INCLUDE_DIR, PythonUtil_LIB_DIR et PythonUtil_BIN_DIR :
 configure_package_config_file (cmake/${CMAKE_PACKAGE_CONFIG_NAME}.cmake.in ${CMAKE_PACKAGE_CONFIG_FILE}
 	INSTALL_DESTINATION ${CMAKE_CMAKE_DIR}
