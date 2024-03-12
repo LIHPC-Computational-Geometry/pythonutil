@@ -1,5 +1,7 @@
 include(CMakeFindDependencyMacro)
+find_dependency (GUIToolkitsVariables)
 find_dependency (TkUtil)
+include (${GUIToolkitsVariables_CMAKE_DIR}/python_binding.cmake)
 find_dependency (@REQUIRED_PYTHON@ REQUIRED COMPONENTS Development)
 
 @PACKAGE_INIT@
