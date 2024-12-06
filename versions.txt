@@ -1,13 +1,19 @@
+Version 6.2.4 : 06/12/24
+===============
+
+ArrÃªt support Python 2.
+
+
 Version 6.2.3 : 26/11/24
 ===============
 
-Python 3 par défaut, sans demande explicite.
+Python 3 par dÃ©faut, sans demande explicite.
 
 
 Version 6.2.2 : 13/12/23
 ===============
 
-cmake_minimum_required (VERSION 3.15)	# CMP0094 (python sélectionné)
+cmake_minimum_required (VERSION 3.15)	# CMP0094 (python sÃ©lectionnÃ©)
 
 
 Version 6.2.0 : 21/06/23
@@ -19,7 +25,7 @@ Sortie du projet GUIToolkits.
 Version 6.1.1 : 25/04/23
 ===============
 
-Correctifs cmake quant à la version de python utilisée.
+Correctifs cmake quant Ã  la version de python utilisÃ©e.
 
 
 Version 6.1.0 : 31/03/23
@@ -31,19 +37,19 @@ Portage GitHub environnement podman/spack/tests CI.
 Version 6.0.1 : 03/02/23
 ===============
 
-Retouches cmake : blindage pour cas non gérés (versions Python).
+Retouches cmake : blindage pour cas non gÃ©rÃ©s (versions Python).
 
 
 Version 6.0.0 : 10/01/23
 ===============
 
-Intégration au projet GUIToolkits.
+IntÃ©gration au projet GUIToolkits.
 
 
 Version 5.6.6 : 25/11/22
 ===============
 
-Suppression répertoire module.
+Suppression rÃ©pertoire module.
 
 
 Version 5.6.5 : 16/09/22
@@ -61,7 +67,7 @@ workaround.cmake : portage cible RedHat_8__x86_64.
 Version 5.6.3 : 29/03/22
 ===============
 
-Correctif dans PythonLogOutputStream::formatInstruction : traitement séparé de "instance" des cas "long" et "double".
+Correctif dans PythonLogOutputStream::formatInstruction : traitement sÃ©parÃ© de "instance" des cas "long" et "double".
 
 
 Version 5.6.2 : 25/02/22
@@ -80,16 +86,16 @@ Retouches cmake dans PythonUtil : find_dependency.
 Version 5.6.0 : 28/01/22
 ===============
 
-Classe PythonLogOutputStream : aptitude à être créée "exécutable" (flag S_IXUSR).
+Classe PythonLogOutputStream : aptitude Ã  Ãªtre crÃ©Ã©e "exÃ©cutable" (flag S_IXUSR).
 Correctif bogue dans PythonLogOutputStream::formatInstruction : cas d'une absence de nom de 
-méthode (=> ex : commentaire uniquement), les parenthèses étaient tout de même mises.
+mÃ©thode (=> ex : commentaire uniquement), les parenthÃ¨ses Ã©taient tout de mÃªme mises.
 
 
 Version 5.5.9 : 26/01/22
 ===============
 
-Correctif bogue dans PythonLogOutputStream::formatInstruction : cas d'un argument de type chaîne de caractère. Une
-exception était levée en cas de chaîne vide.
+Correctif bogue dans PythonLogOutputStream::formatInstruction : cas d'un argument de type chaÃ®ne de caractÃ¨re. Une
+exception Ã©tait levÃ©e en cas de chaÃ®ne vide.
 
 
 Version 5.5.8 : 04/11/21
@@ -113,75 +119,75 @@ Suppression des noms de services et laboratoires.
 Version 5.5.5 : 04/08/21
 ===============
 
-PythonUtil/cmake/PythonUtilConfig.cmake.in : find_dependency à Python2 ou Python3 selon le cas.
+PythonUtil/cmake/PythonUtilConfig.cmake.in : find_dependency Ã  Python2 ou Python3 selon le cas.
 
 
-Version 5.5.4 : 22/12/20 Révisions svn 377/378
+Version 5.5.4 : 22/12/20 RÃ©visions svn 377/378
 ===============
 
 Retouche mineure CMakeLists.txt.
 
 
-Version 5.5.3 : 11/12/20 Révisions svn 375/376
+Version 5.5.3 : 11/12/20 RÃ©visions svn 375/376
 ===============
 
 Retouche mineure CMakeLists.txt.
 
 
-Version 5.5.2 : 06/10/20 Révision svn 374
+Version 5.5.2 : 06/10/20 RÃ©vision svn 374
 ===============
 
 Retouche mineure pour export.
 
 
-Version 5.5.1 : 17/09/20 Révisions svn 371/372
+Version 5.5.1 : 17/09/20 RÃ©visions svn 371/372
 ===============
 
 Retouches mineures passage ISO 8859 -> UTF8.
 
 
-Version 5.5.0 : 02/09/20 Révisions svn 368/369
+Version 5.5.0 : 02/09/20 RÃ©visions svn 368/369
 ===============
 
 v 0.8.0 de cmake/workarounds.cmake (LC_ALL=C)
 v 0.2.0 de cmake/python_binding.cmake (support Python 2/Python 3)
-Requiert TkUtil 5.6.0 ou ultérieur.
+Requiert TkUtil 5.6.0 ou ultÃ©rieur.
 
 
-Version 5.4.3 : Révisions svn 365/366
+Version 5.4.3 : RÃ©visions svn 365/366
 ===============
 
-- Ajout -DNDEBUG à la compilation en mode non debug.
+- Ajout -DNDEBUG Ã  la compilation en mode non debug.
 - Actualisation des fichiers d'installation par scripting (build.sh, configurations/*).
 
 
-Version 5.4.2 : 25/06/20 Révisions svn 362/363
+Version 5.4.2 : 25/06/20 RÃ©visions svn 362/363
 ===============
 
 Petits correctifs pour import/export.
 
 
-Version 5.4.1 : 08/06/20 Révisions svn 358/359
+Version 5.4.1 : 08/06/20 RÃ©visions svn 358/359
 ===============
 
 Petits correctifs pour import/export.
-cmake/common.cmake : ajout à CMAKE_CXX_FLAGS de la variable EXTRA_CXX_FLAGS éventuellement transmise en argument
+cmake/common.cmake : ajout Ã  CMAKE_CXX_FLAGS de la variable EXTRA_CXX_FLAGS Ã©ventuellement transmise en argument
 de cmake.
 
 
-Version 5.4.0 : 04/06/20 Révisions svn 355/357
+Version 5.4.0 : 04/06/20 RÃ©visions svn 355/357
 ===============
 
-Fin réintégration en environnement CEA suite confinement covid-19.
-Procédure d'exportation ouverte des sources : cible export avec script export.sh.
-cmake/workaround.cmake utilise maintenant la commande lsb_release -d à la place du tandem uname/commande locale. A
+Fin rÃ©intÃ©gration en environnement CEA suite confinement covid-19.
+ProcÃ©dure d'exportation ouverte des sources : cible export avec script export.sh.
+cmake/workaround.cmake utilise maintenant la commande lsb_release -d Ã  la place du tandem uname/commande locale. A
 finaliser sur calculateur.
 
 
 Version 5.3.0 : 04/04/20
 ===============
 
-Déplacement des en-têtes dans le répertoire PythonUtil
+DÃ©placement des en-tÃªtes dans le rÃ©pertoire PythonUtil
 TkUtil v 5.4.0
 
 
@@ -194,81 +200,81 @@ auto_ptr -> unique_ptr
 Mise en fonctionnement du test de scripting.
 
 
-Version 5.1.0 : 17/02/20. Révisions svn 345
+Version 5.1.0 : 17/02/20. RÃ©visions svn 345
 ===============
 
-- Retouches compatibilité (SameMinorVersion -> SameMajorVersion)
+- Retouches compatibilitÃ© (SameMinorVersion -> SameMajorVersion)
 
 
-Version 5.0.3 : 21/01/20. Révisions svn 343
+Version 5.0.3 : 21/01/20. RÃ©visions svn 343
 ===============
 
-Script de génération de l'archive des sources, script create_tarball.sh.
+Script de gÃ©nÃ©ration de l'archive des sources, script create_tarball.sh.
 Fichier LISEZMOI.txt
 
 
-Version 5.0.2 : 13/01/20. Révisions svn 342
+Version 5.0.2 : 13/01/20. RÃ©visions svn 342
 ===============
 
-Portage CMake/Spack. Retouche python_binding.cmake + dépendance à Python.
+Portage CMake/Spack. Retouche python_binding.cmake + dÃ©pendance Ã  Python.
 
 
-Version 5.0.1 : 06/01/20 révision svn 340
+Version 5.0.1 : 06/01/20 rÃ©vision svn 340
 ===============
 
 Version 5.0.1. Portage (Atos_7__x86_64). Retouche workarounds.cmake pour lib stdc++ GNU.
 
 
-Version 5.0.0 : 06/09/19 C. Pignerol Révisions svn r337/r338
+Version 5.0.0 : 06/09/19 C. Pignerol RÃ©visions svn r337/r338
 ===============
 
-Passage en environnement CMake/Spack (arrêt GSCC).
+Passage en environnement CMake/Spack (arrÃªt GSCC).
 
-PythonLogOutputStream::formatInstruction : les booléens sont écrits t.q. (True/False)
-à la place de 1/0.
+PythonLogOutputStream::formatInstruction : les boolÃ©ens sont Ã©crits t.q. (True/False)
+Ã  la place de 1/0.
 
 
-Version 4.6.0 : 05/09/19 C. Pignerol Révisions svn r334/r336
+Version 4.6.0 : 05/09/19 C. Pignerol RÃ©visions svn r334/r336
 ===============
 
 TkUtil v 4.6.0
 
 
-Version 4.5.1 : 29/01/19 C. Pignerol Révisions svn r331/r333
+Version 4.5.1 : 29/01/19 C. Pignerol RÃ©visions svn r331/r333
 ===============
 
 Correctif PythonLogOutputStream::toComment : cas d'un commentaire
 finissant par un saut de ligne (levait une exception).
 
 
-Version 4.5.0 : 28/11/18 C. Pignerol Révisions svn r328/r330
+Version 4.5.0 : 28/11/18 C. Pignerol RÃ©visions svn r328/r330
 ===============
 
 TkUtil v 4.5.0
 
 
-Version 4.4.0 : 16/11/18 C. Pignerol Révisions svn r325/r328
+Version 4.4.0 : 16/11/18 C. Pignerol RÃ©visions svn r325/r328
 ===============
 
 TkUtil v 4.4.0
 
 Correctif dans PythonLogOutputStream::toComment :
-\n en trop à chaque saut de ligne.
+\n en trop Ã  chaque saut de ligne.
 
 
-Version 4.3.0 : 14/09/18 C. Pignerol Révisions svn r321/r323
+Version 4.3.0 : 14/09/18 C. Pignerol RÃ©visions svn r321/r323
 ===============
 
 TK_Variants v 4.4.0 (TkUtil 4.3.0).
 
 
-Version 4.2.0 : 04/09/18 C. Pignerol Révisions svn r318/r320
+Version 4.2.0 : 04/09/18 C. Pignerol RÃ©visions svn r318/r320
 ===============
 
 TK_Variants v 4.3.0 (TkUtil 4.2.0).
 
 
-Version 4.1.0 : 22/06/18 C. Pignerol Révisions svn r315/r317
+Version 4.1.0 : 22/06/18 C. Pignerol RÃ©visions svn r315/r317
 ===============
 
 TK_Variants v 4.2.0 (TkUtil 4.1.0).
@@ -281,9 +287,9 @@ TK_Variants v 4.0.0
 
 TkUtil v 4.0.0 : classe UTF8String.
 
-Utilisation des chaînes de caractères UTF8String dans l'API proposée.
+Utilisation des chaÃ®nes de caractÃ¨res UTF8String dans l'API proposÃ©e.
 
-Encodage des scripts python avec jeu de caractères demandé (ISO-8859/UTF-8).
+Encodage des scripts python avec jeu de caractÃ¨res demandÃ© (ISO-8859/UTF-8).
 
 
 Version 3.8.0 : 15/02/18 C. Pignerol 
@@ -315,7 +321,7 @@ Version 3.5.0 : 05/09/17 C. Pignerol
 
 - TK_variants v 2.16.0
 
-- Méthode PythonLogOutputStream::toComment (string)
+- MÃ©thode PythonLogOutputStream::toComment (string)
 
 
 Version 3.4.0 : 21/07/17 C. Pignerol 
@@ -329,7 +335,7 @@ Version 3.3.0 : 22/06/17 C. Pignerol
 
 - TK_variants v 2.14.0
 
-Pré-portage Qt 5.8
+PrÃ©-portage Qt 5.8
 
 
 Version 3.0.0 : 09/12/16 C. Pignerol 
@@ -337,7 +343,7 @@ Version 3.0.0 : 09/12/16 C. Pignerol
 
 - TK_variants v 2.0.0
 
-Arrêt variant MT, TkUtil v 3.0.0
+ArrÃªt variant MT, TkUtil v 3.0.0
 
 
 Version 2.43.0 : 29/08/16 C. Pignerol
@@ -352,7 +358,7 @@ Version 2.42.1 : 17/05/16 C. Pignerol
 - TK_variants v 1.69.0
 
 Correctif PythonSession : suppression utilisation
-flags.cf_flags = CO_FUTURE_DIVISION car python ne substitue pas l'opérateur /
+flags.cf_flags = CO_FUTURE_DIVISION car python ne substitue pas l'opÃ©rateur /
 par div dans les scripts => mauvais mapping avec swig 1.3.
 
 
@@ -423,7 +429,7 @@ Version 2.32.0 : 13/05/13
 ================
 
 - TK_Variants v 1.26.0 (TkUtil v 2.31.0).
-- Variant Python_System à la place de Python_2.6.
+- Variant Python_System Ã  la place de Python_2.6.
 
 
 Version 2.31.0 : 18/01/13
@@ -445,13 +451,13 @@ Version 2.29.0 : 12/10/12
 ================
 
 - PythonSession : Les fonctions execCommand et execFile prennent en argument le
-bouléen catchOutputs.
-- Les flux stdout et stderr de l'interpréteur Python sont récupérés et :
-	- Redirigés dans le terminal d'origine, (ne fonctionne pas à 100/100)
-	- Sauvegardés dans un fichier, et récupérables via getOutText et
+boulÃ©en catchOutputs.
+- Les flux stdout et stderr de l'interprÃ©teur Python sont rÃ©cupÃ©rÃ©s et :
+	- RedirigÃ©s dans le terminal d'origine, (ne fonctionne pas Ã  100/100)
+	- SauvegardÃ©s dans un fichier, et rÃ©cupÃ©rables via getOutText et
 	getErrorText.
 Motivation : lorsque la commande plante on souhaite avoir sur les sorties
-standards (stdout/stderr) les messages relatifs à l'exécution de la commande.
+standards (stdout/stderr) les messages relatifs Ã  l'exÃ©cution de la commande.
 
 
 Version 2.28.0 : 17/01/12
@@ -459,7 +465,7 @@ Version 2.28.0 : 17/01/12
 
 - TkUtil v 2.28.0.
 
-ATTENTION : déploiement effectué hors TK_Variants
+ATTENTION : dÃ©ploiement effectuÃ© hors TK_Variants
 
 
 Version 2.27.0 : 04/01/12
@@ -467,7 +473,7 @@ Version 2.27.0 : 04/01/12
 
 - TkUtil v 2.27.0.
 
-ATTENTION : déploiement effectué hors TK_Variants
+ATTENTION : dÃ©ploiement effectuÃ© hors TK_Variants
 => un force_variant version 2.27.0 de TkUtil est dans
 src/PythonUtil/cmpnt.xml.
 
@@ -500,8 +506,8 @@ Version 2.23.0 : 25/01/11
 Version 2.22.1 : 05/01/11
 ================
 
-- PyRun_Simple* remplacé par PyRun_Simple*Flags avec usage de
-CO_FUTURE_DIVISION : les divisions ne sont plus entières par défaut
+- PyRun_Simple* remplacÃ© par PyRun_Simple*Flags avec usage de
+CO_FUTURE_DIVISION : les divisions ne sont plus entiÃ¨res par dÃ©faut
 => 1 / 4 = 0.25, et non 0 comme auparavant.
 - TK_Variants v 1.13.0
 - Actualisation des tests.
@@ -510,7 +516,7 @@ CO_FUTURE_DIVISION : les divisions ne sont plus entières par défaut
 Version 2.22.0 : 15/11/10
 ================
 
-- En-têtes : #include "*.h" -> #include <*.h>
+- En-tÃªtes : #include "*.h" -> #include <*.h>
 - TkUtil v 2.21.0
 - TK_Variants v 1.11.0
 
@@ -609,7 +615,7 @@ Republiee le 27/06/08 avec pour option de compilation
 -DSWIG_FORBIDS_FINALIZATION.
 
 
-Versions antérieures :
+Versions antÃ©rieures :
 ======================
 
 Voir fichier versions.old.
