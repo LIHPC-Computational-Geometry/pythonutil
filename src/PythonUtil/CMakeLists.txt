@@ -1,12 +1,13 @@
 set (CURRENT_PACKAGE_NAME "PythonUtil")
 set (CURRENT_PACKAGE_MACRO_NAME "PYTHON_UTIL")
 
-find_package (GUIToolkitsVariables)
+find_package (GUIToolkitsVariables 1.7 REQUIRED)
 
 include (${CMAKE_SOURCE_DIR}/cmake/version.cmake)
 include (${GUIToolkitsVariables_CMAKE_DIR}/common.cmake)
 include (${GUIToolkitsVariables_CMAKE_DIR}/python_binding.cmake)
 include (${GUIToolkitsVariables_CMAKE_DIR}/workarounds.cmake)
+include (${GUIToolkitsVariables_CMAKE_DIR}/utilities.cmake)
 
 find_package (TkUtil 6 REQUIRED)
 
@@ -31,6 +32,7 @@ foreach (lib ${ALL_TARGETS})
    set_target_properties (${lib} PROPERTIES INSTALL_RPATH_USE_LINK_PATH 1)
 # Vieux compilos/architectures (RH6, Bull, gcc 4.*)
    target_compile_definitions (${lib} PRIVATE WITHOUT_THREAD_LOCALE)
+   separate_debug_infos (${lib} ${CMAKE_INSTALL_PREFIX}/src)
 endforeach (lib)
 target_include_directories (PythonUtil PRIVATE ${Python_INCLUDE_DIRS})
 target_link_libraries (PythonUtil PUBLIC TkUtil::TkUtil ${Python_LIBRARIES})
