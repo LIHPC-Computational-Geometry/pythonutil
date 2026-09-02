@@ -369,7 +369,7 @@ void PythonLogOutputStream::closeUtilExcTryBlock ( )
 {
 	closeBlock ( );
 #if PY_VERSION_HEX >= 0x03000000	// v 5.6.2
-	write (UTF8String ("except Exception as re :", charset));
+	write (UTF8String ("except Exception as exc :", charset));
 #else 	// #if PY_VERSION_HEX >= 0x03000000
 	write (UTF8String ("except Exception , exc :", charset));
 #endif	// #if PY_VERSION_HEX >= 0x03000000
