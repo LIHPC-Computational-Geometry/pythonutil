@@ -1,3 +1,10 @@
+Version 6.3.1 : 02/09/26
+===============
+
+Correctif PythonLogOutputStream::closeUtilExcTryBlock : remplacement du nom de l'exception (re) par exc
+pour correspondre au nom donné dans except.
+
+
 Version 6.3.0 : 28/08/26
 ===============
 
