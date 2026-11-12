@@ -1,13 +1,7 @@
 name: Reusable Spack CI
 
 on:
-  workflow_call:
-    inputs:
-      coverage:
-        description: "Enable C++ coverage"
-        required: false
-        default: false
-        type: boolean
+  workflow_dispatch:
 
 env:
   QT_QPA_PLATFORM: offscreen
