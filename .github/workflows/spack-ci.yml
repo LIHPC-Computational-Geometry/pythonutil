@@ -1,51 +1,14 @@
-name: Reusable Spack CI
+name: Spack CI
 
 on:
+  push:
+    branches:
+      - '**'
+  pull_request:
+  # Allows you to run this workflow manually
   workflow_dispatch:
 
-env:
-  QT_QPA_PLATFORM: offscreen
-
 jobs:
-  main:
-    name: Main job
-    # The CMake configure and build commands are platform agnostic
-    # and should work equally well on Linux, Windows or Mac.
-    runs-on: ubuntu-latest
-    container:
-      image: ghcr.io/lihpc-computational-geometry/spack-cgcore:latest
-
-    steps:
-      # Initialize Spack environment (Spack and recipes are in the container)
-      - name: Initialize environment
-        shell: bash
-        run : |
-          source /spack/share/spack/setup-env.sh
-          spack external find cmake
-          spack compiler list
-          spack compiler info gcc
-          cd /spack_recipes && git pull
-          spack repo add /spack_recipes/meshing
-          spack repo add /spack_recipes/meshing_supersede
-
-      # Checkout project source files
-      - name: Checkout sources
-        uses: actions/checkout@v6
-      
-      # Build the current sources, run unit tests and install
-      - name: Build and install
-        shell: bash
-        run: |
-          source /spack/share/spack/setup-env.sh
-          spack env create ci-env
-          spack env activate ci-env
-          # ${{ github.event.repository.name }} represents the name of the project
-          spack add ${{ github.event.repository.name }}
-          spack add python@3
-          spack add py-pytest
-          # Must set a version number > last version to take right variants in recipes
-          export version_number=`spack info ${{ github.event.repository.name }} | grep -A 1 "Preferred version:" | tail -n 1 | awk {'print $1'}`
-          echo $version_number
-          spack develop -p $GITHUB_WORKSPACE --no-clone ${{ github.event.repository.name }}@$version_number
-          spack concretize --reuse
-          spack install -v --test=root
+  call:
+    name: Call Spack CI
+    uses: LIHPC-Computational-Geometry/spack_recipes/.github/workflows/spack-reusable.yml@main
